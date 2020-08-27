@@ -22,7 +22,7 @@ const HeaderMenu = () => {
 
             ">
           <Menu.Item key="scrum">Скрам-рамка</Menu.Item>
-          <Menu.Item key="termometrs">Командные
+          <Menu.Item disabled key="termometrs">Командные
               термометры</Menu.Item>
       </Menu>
     )
