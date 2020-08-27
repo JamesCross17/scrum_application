@@ -1,0 +1,27 @@
+language: node_js
+node_js:
+  - "stable"
+
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s
+  - export PATH="$HOME/.yarn/bin:$PATH"
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+script:
+  - cd frontend
+  - echo 'Build starts!!'
+  - echo 'Installing Deps!'
+  - yarn
+
+  - yarn build
+
+deploy:
+  provider: pages
+  local_dir: build
+  cleanup: true
+  token: $GH_TOKEN
+  on:
+    branch: master
