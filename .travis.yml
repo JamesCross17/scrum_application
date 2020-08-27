@@ -19,8 +19,8 @@ script:
 
 deploy:
   provider: pages
-  deploy.skip_cleanup: true
   github-token: $GH_TOKEN
   local_dir: build
+  edge: true
   on:
     branch: master
