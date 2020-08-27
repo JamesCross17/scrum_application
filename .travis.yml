@@ -11,7 +11,6 @@ cache:
     - node_modules
 
 script:
-  - cd frontend
   - echo 'Build starts!!'
   - echo 'Installing Deps!'
   - yarn
