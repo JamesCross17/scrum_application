@@ -21,6 +21,6 @@ deploy:
   provider: pages
   local_dir: build
   cleanup: true
-  token: $GH_TOKEN
+  github-token: $GH_TOKEN
   on:
     branch: master
