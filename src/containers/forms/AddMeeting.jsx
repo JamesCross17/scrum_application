@@ -31,7 +31,7 @@ const tailLayout = {
     },
 }
 
-const AddMeeting = ({ onClose,meetings }) => {
+const AddMeeting = ({ onClose, meetings }) => {
     const [form] = Form.useForm()
 
     const onFinish = values => {
@@ -45,30 +45,13 @@ const AddMeeting = ({ onClose,meetings }) => {
     const onMeetingChange = () => {
         form.resetFields(['checklist'])
     }
-    console.log('---',meetings);
+    console.log('---', meetings)
     return (
 
       <Form {...layout} form={form} name="control-hooks"
             onFinish={onFinish}>
           <Row gutter={[16, 16]}>
               <Col span={9}>
-                  <Form.Item
-                    name="meeting"
-                    label="Митинг"
-                    rules={[
-                        {
-                            required: true,
-                        },
-                    ]}
-                  >
-                      <Select
-                        placeholder="Выберите митинг"
-                        onChange={onMeetingChange}
-                        allowClear
-                      >
-                          {meetings.meetings.map(({key,text},index)=><Option value={key} key={index}>{text}</Option>)}
-                      </Select>
-                  </Form.Item>
                   <Form.Item
                     name="team"
                     label="Команда"
@@ -82,7 +65,9 @@ const AddMeeting = ({ onClose,meetings }) => {
                         placeholder="Выберите команду"
                         allowClear
                       >
-                          {meetings.teams.map(({key,text},index)=><Option value={key} key={index}>{text}</Option>)}
+                          {meetings.teams.map(
+                            ({ key, text }, index) => <Option value={key}
+                                                              key={index}>{text}</Option>)}
                       </Select>
                   </Form.Item>
                   <Form.Item
@@ -105,7 +90,27 @@ const AddMeeting = ({ onClose,meetings }) => {
                         },
                     ]}
                   >
-                      <DatePicker locale={locale} format={'DD.MM.YYYY'} defaultValue={moment()}/>
+                      <DatePicker locale={locale} format={'DD.MM.YYYY'}
+                                  defaultValue={moment()}/>
+                  </Form.Item>
+                  <Form.Item
+                    name="meeting"
+                    label="Митинг"
+                    rules={[
+                        {
+                            required: true,
+                        },
+                    ]}
+                  >
+                      <Select
+                        placeholder="Выберите митинг"
+                        onChange={onMeetingChange}
+                        allowClear
+                      >
+                          {meetings.meetings.map(
+                            ({ key, text }, index) => <Option value={key}
+                                                              key={index}>{text}</Option>)}
+                      </Select>
                   </Form.Item>
                   <Form.Item
                     name="comment"
