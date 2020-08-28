@@ -71,6 +71,25 @@ const AddMeeting = ({ onClose, meetings }) => {
                       </Select>
                   </Form.Item>
                   <Form.Item
+                    name="meeting"
+                    label="Митинг"
+                    rules={[
+                        {
+                            required: true,
+                        },
+                    ]}
+                  >
+                      <Select
+                        placeholder="Выберите митинг"
+                        onChange={onMeetingChange}
+                        allowClear
+                      >
+                          {meetings.meetings.map(
+                            ({ key, text }, index) => <Option value={key}
+                                                              key={index}>{text}</Option>)}
+                      </Select>
+                  </Form.Item>
+                  <Form.Item
                     name="sprint"
                     label="Спринт"
                     rules={[
@@ -92,25 +111,6 @@ const AddMeeting = ({ onClose, meetings }) => {
                   >
                       <DatePicker locale={locale} format={'DD.MM.YYYY'}
                                   defaultValue={moment()}/>
-                  </Form.Item>
-                  <Form.Item
-                    name="meeting"
-                    label="Митинг"
-                    rules={[
-                        {
-                            required: true,
-                        },
-                    ]}
-                  >
-                      <Select
-                        placeholder="Выберите митинг"
-                        onChange={onMeetingChange}
-                        allowClear
-                      >
-                          {meetings.meetings.map(
-                            ({ key, text }, index) => <Option value={key}
-                                                              key={index}>{text}</Option>)}
-                      </Select>
                   </Form.Item>
                   <Form.Item
                     name="comment"
